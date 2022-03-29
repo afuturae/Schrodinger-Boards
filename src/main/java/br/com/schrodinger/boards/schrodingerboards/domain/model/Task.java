@@ -2,38 +2,34 @@ package br.com.schrodinger.boards.schrodingerboards.domain.model;
 
 import br.com.schrodinger.boards.schrodingerboards.domain.enums.TaskStatusEnum;
 
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
+import lombok.Data;
 
 @Entity
+@Data
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column
-    private UUID user;
+    private UUID userAssigned;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "board_id", nullable = false)
     private Board board;
 
-    @Column
     private String title;
 
-    @Column
     private String description;
 
-    @Column
     private TaskStatusEnum status;
 
-    @Column
     private LocalDate deadline;
 
-    @Column
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
-    @Column
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 }
