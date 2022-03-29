@@ -11,10 +11,13 @@ import javax.persistence.Id;
 public class Board {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column
     private String name;
+
+    @Column
+    private UUID leader;
 
 }
