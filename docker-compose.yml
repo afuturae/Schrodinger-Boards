@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    restart: always
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_DB: schrodinger-boards
+      POSTGRES_USER: schrodinger-boards
+      POSTGRES_PASSWORD: schrodinger-boards
+    command: "postgres -c log_statement=all"
