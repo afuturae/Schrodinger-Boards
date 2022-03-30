@@ -1,5 +1,6 @@
 package br.com.schrodinger.boards.schrodingerboards.domain.service;
 
+import br.com.schrodinger.boards.schrodingerboards.domain.model.Board;
 import br.com.schrodinger.boards.schrodingerboards.domain.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 
@@ -8,8 +9,11 @@ public class BoardService {
 
     private BoardRepository boardRepository;
 
-    // Dependency injection by constructor
     public BoardService(BoardRepository boardRepository) {
         this.boardRepository = boardRepository;
+    }
+
+    public Board create(Board board) {
+        return boardRepository.save(board);
     }
 }
