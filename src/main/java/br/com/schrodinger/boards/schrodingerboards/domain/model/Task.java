@@ -1,6 +1,7 @@
 package br.com.schrodinger.boards.schrodingerboards.domain.model;
 
 import br.com.schrodinger.boards.schrodingerboards.domain.enums.TaskStatusEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "board_id", nullable = false)
+    @JsonManagedReference
     private Board board;
 
     private String title;
