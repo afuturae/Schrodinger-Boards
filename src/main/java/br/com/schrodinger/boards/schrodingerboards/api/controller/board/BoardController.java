@@ -1,6 +1,8 @@
 package br.com.schrodinger.boards.schrodingerboards.api.controller.board;
 
 import br.com.schrodinger.boards.schrodingerboards.domain.service.BoardService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/boards")
+@Tag(name = "Boards", description = "Boards to add tasks")
 public class BoardController {
 
     private final BoardService boardService;
@@ -17,6 +20,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
+    @Operation(summary = "Create a new board")
     @PostMapping
     public ResponseEntity<BoardResponse> create(@RequestBody BoardRequest board) {
         var createdBoard = boardService.create(board.toBoard());
