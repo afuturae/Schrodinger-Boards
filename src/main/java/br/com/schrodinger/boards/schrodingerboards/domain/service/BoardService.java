@@ -15,6 +15,12 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
+    /**
+     * This method create a new board
+     *
+     * @param board
+     * @return a new created board
+     */
     public Board create(Board board) {
         board.setCreatedAt(LocalDateTime.now());
 
@@ -24,10 +30,14 @@ public class BoardService {
         throw new RuntimeException("Não é possível cadastrar dois boards com o mesmo nome");
     }
 
-    public Board getById(UUID id){
-        return boardRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Not found")
-        );
+    /**
+     * This method search board by id
+     *
+     * @param id as UUID
+     * @return a founded board
+     */
+    public Board getById(UUID id) {
+        return boardRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
     }
 
 }
