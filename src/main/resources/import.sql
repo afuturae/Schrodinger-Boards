@@ -1,0 +1,2 @@
+INSERT INTO board VALUES ('3fa85f64-5717-4562-b3fc-2c963f66afa6', now(), 'c8feef2b-c2bc-4457-bf77-08fa5095562b', 'Schrodinger Board', null);
+INSERT INTO task VALUES ('13b8aeec-da88-4509-9438-87f7028d9222', now(), now(), 'Description for this task', 1, 'Title for this task', null, '265d1e43-2477-457e-87a4-2a7d008a836d', '3fa85f64-5717-4562-b3fc-2c963f66afa6');
